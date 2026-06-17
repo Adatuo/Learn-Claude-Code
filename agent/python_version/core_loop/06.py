@@ -265,6 +265,7 @@ def extract_text(content) -> str:
             texts.append(text)
     return "\n".join(texts).strip()
 
+# 函数执行工具，而不是字典，灵活注入不同的变量
 def execute_tool(block, state: CompactState) -> str:
     if block.name == "bash":
         return run_bash(block.input["command"], block.id)
